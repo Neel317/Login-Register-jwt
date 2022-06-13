@@ -3,6 +3,7 @@
 
 
 require('dotenv').config();
+require('express-async-errors');
 
 const connectDB = require('./db/connect');
 const {notFound, errorHandling} =require('./middleware/404&error');

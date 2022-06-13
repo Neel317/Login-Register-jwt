@@ -14,17 +14,16 @@ const userSchema = mongoose.Schema({
     trim: true,
     lowercase: true,
     unique: true,
-    required: 'Email address is required',
+    required: [true,'Email address is required'],
     match: [/\S+@\S+\.\S+/, 'Please fill a valid email address']
   },
   password:{
     type: String,
     required:[true, 'Please enter Password'],
-    minLength:[6, 'Password lenght cannot be less than 6'],
-    maxLength:[12, 'Password cannot exceed 12']
   },
   DOB:{
-    type: Date
+    type: Date,
+    required: [true, 'Please provide Date of Birth']
   },
   age:{
     type: Number
