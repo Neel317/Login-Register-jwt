@@ -1,0 +1,56 @@
+[
+  {
+    "first_name": "Neel",
+    "last_name": "Dudheliya",
+    "email": "neel@mail.com",
+    "password": "$2a$10$.8b80hAaYtL1hTQl83VS7uRNPvH.Ge0aTTIUq90JFaD7U5YJ.I/gm",
+    "DOB": "2001-07-31",
+    "age": 20,
+    "role": "admin"
+  },
+  {
+    "first_name": "Yagnik",
+    "last_name": "Khunt",
+    "email": "yagnik@email.com",
+    "password": "$2a$10$9RSqDBLeRtyg0qVt4BS8su1QQj6JocEGBHpGXVqghplD4LDzwsE/K",
+    "DOB": "1990-05-12",
+    "age": 32,
+    "role": "user"
+  },
+  {
+    "first_name": "Jay",
+    "last_name": "Vaghani",
+    "email": "jay@yahoo.com",
+    "password": "$2a$10$c6MyDzWHTZGRBvR0VDpyA.hRxXOhKkjVIpr4QehunAfI/B8U/I80a",
+    "DOB": "1997-03-21",
+    "age": 25,
+    "role": "user"
+  },
+  {
+    "first_name": "Harshil",
+    "last_name": "",
+    "email": "hz@yahoo.com",
+    "password": "$2a$10$GA9ILjI9S9THfI78XzFApenwEUlAyJYNFyZTXL7iu1JLIZZZVlLRS",
+    "DOB": "2004-08-17",
+    "age": 17,
+    "role": "user"
+  },
+  {
+    "first_name": "Deepak",
+    "last_name": "Khunt",
+    "email": "dk@gmail.com",
+    "password": "$2a$10$63vxidcTFyXl.5bp7V58AO6SJV7KvaGdI.YAM5dq900OVQlu1gEEu",
+    "DOB": "1988-04-25",
+    "age": 34,
+    "role": "user"
+  },
+  {
+    "first_name": "Sagar",
+    "last_name": "Khunt",
+    "email": "sagar@outlook.com",
+    "password": "$2a$10$iG3re/khiHkeCNlrlNR4Oe7p8GdP0ZAU1gc8rGDOwlmQi1D1e/hzS",
+    "DOB": "1993-02-10",
+    "age": 29,
+    "role": "user"
+  }
+]

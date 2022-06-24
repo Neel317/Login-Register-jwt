@@ -5,6 +5,7 @@ const Users = require('../models/user');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const user = require('../models/user');
+const deleteUsers = require('./roles');
 
 const login = async (req, res) => {
   const {email, password} = req.body;
@@ -15,6 +16,7 @@ const login = async (req, res) => {
   if(users && bcrypt.compareSync(password, users.password)){
     const token = await jwt.sign({user_id: user._id, email}, process.env.JWT_KEY, {expiresIn: '2d'});
     users.token = token;
+
     return res.status(200).json({
       msg:"Login is Successful, Use the below token in Headers \"Authorization: Bearer <token>\" on the http://localhost:5000/dashboard endpoint for accessing data",
       data: users
@@ -69,10 +71,51 @@ const dashboard = async (req, res) => {
   const email = req.userEmail;
   const logedUser = await Users.findOne({email});
 
-  const users = await Users.find({});
+  const queryObject = {};
+  const { search, sort, selected, del} = req.query;
+
+  if(search){
+    queryObject.DOB = new Date(search);
+  }
+
+  if (logedUser.role === 'admin'){
+    // Admin User
+    if (selected && del) {
+      const inOption = selected.split(','); 
+      const multiSelect = {
+        email: {
+          $in: inOption
+        }
+      }
+      // Delete Users
+      deleteUsers(multiSelect);
+    }else{
+      throw new CustomAPIError('Provided Invalid options', 400);
+    }
+  } else if(logedUser.role === 'user' && (selected || del)) {
+     throw new CustomAPIError('You are not authorized to use this parameters', 403);
+  }
+
+  let result = Users.find(queryObject);
+  
+  if (sort) {
+    const sortList = sort.split(',').join(' ');
+    result = result.sort(sortList);
+  } else {
+    result = result.sort('first_name');
+  }
+
+  const page = Number(req.query.page) || 1;
+  const limit = Number(req.query.limit) || 5;
+  const skip = (page - 1) * limit;
+
+  result = result.skip(skip).limit(limit);
+
+  const users = await result;
   res.status(200).json({
     User: `Welcome ! ${logedUser.first_name}, Here is the data u requested.`,
-    data:users
+    data: users,
+    total: users.length
   });
 }
 

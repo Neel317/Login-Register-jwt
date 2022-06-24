@@ -30,6 +30,14 @@ const userSchema = mongoose.Schema({
   },
   token:{
     type: String
+  },
+  role:{
+    type: String,
+    enum:{
+      values: ['admin', 'user'],
+      message: '${VALUE} is not a valid role.'
+    },
+    default: 'user'
   }
 })
 

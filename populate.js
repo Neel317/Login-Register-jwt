@@ -1,7 +1,7 @@
 require('dotenv').config();
 const connectDB = require('./db/connect');
 const Users = require('./models/user');
-const mockData = require('./models/Mock-data.json');
+const mockData = require('./db/users.json');
 
 
 const populating = async () => {
