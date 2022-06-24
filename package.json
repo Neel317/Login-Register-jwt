@@ -1,24 +1,27 @@
 {
-  "name": "none",
+  "name": "login-register",
   "version": "1.0.0",
-  "description": "none",
-  "main": "mongo.js",
+  "description": "CLI commands not working",
+  "main": "app.js",
   "scripts": {
-    "start": "nodemon app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Neel317/Login-Register-jwt.git"
+  },
+  "author": "Orion Pax",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Neel317/Login-Register-jwt/issues"
+  },
+  "homepage": "https://github.com/Neel317/Login-Register-jwt#readme",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
     "express-async-errors": "^3.1.1",
     "jsonwebtoken": "^8.5.1",
-    "mongodb": "^4.6.0",
-    "mongoose": "^6.3.5"
-  },
-  "devDependencies": {
-    "nodemon": "^2.0.16"
+    "mongoose": "^6.4.0"
   }
 }

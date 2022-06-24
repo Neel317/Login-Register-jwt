@@ -136,4 +136,4 @@ function getAge(dateString)
     return age;
 }
 
-module.exports = {login, register, dashboard};
+module.exports = {login, register, dashboard, getAge};
